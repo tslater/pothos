@@ -55,7 +55,7 @@ fieldBuilderProto.globalIDList = function globalIDList<
             : internalEncodeGlobalID(
                 this.builder,
                 this.builder.configStore.getTypeConfig(item.type).name,
-                String(item.id),
+                item.id,
                 context,
               ),
       );
@@ -96,7 +96,7 @@ fieldBuilderProto.globalID = function globalID<
     return internalEncodeGlobalID(
       this.builder,
       this.builder.configStore.getTypeConfig(item.type).name,
-      String(item.id),
+      item.id,
       context,
     );
   };
@@ -130,7 +130,7 @@ fieldBuilderProto.node = function node({ id, ...options }) {
           : internalEncodeGlobalID(
               this.builder,
               this.builder.configStore.getTypeConfig(rawID.type).name,
-              String(rawID.id),
+              rawID.id,
               context,
             );
 
