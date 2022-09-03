@@ -4,14 +4,14 @@ import { decodeGlobalID, encodeGlobalID } from './global-ids';
 export function internalEncodeGlobalID<Types extends SchemaTypes>(
   builder: PothosSchemaTypes.SchemaBuilder<Types>,
   typename: string,
-  id: bigint | number | string,
+  id: any,
   ctx: object,
 ) {
   if (builder.options.relayOptions.encodeGlobalID) {
     return builder.options.relayOptions.encodeGlobalID(typename, id, ctx);
   }
 
-  return encodeGlobalID(typename, id);
+  return encodeGlobalID(typename, String(id));
 }
 
 export function internalDecodeGlobalID<Types extends SchemaTypes>(
